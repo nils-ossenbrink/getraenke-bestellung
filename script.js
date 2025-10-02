@@ -16,17 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const drink = document.getElementById("drink").value;
     const quantity = document.getElementById("quantity").value;
-    const email = document.getElementById("email").value;
     const table = document.getElementById("tableNumber").value;
 
     const templateParams = {
       drink: drink,
       quantity: quantity,
-      email: email,
       table: table
     };
-    
-	emailjs.send("service_les6osp", "template_4vx0rrq", templateParams)
+
+    emailjs.send("service_les6osp", "template_4vx0rrq", templateParams)
       .then(function(response) {
         document.getElementById("orderSummary").innerText = "Bestellung erfolgreich versendet!";
       }, function(error) {
