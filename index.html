@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getränkebestellung</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init({ publicKey: "ZwVPYqogr4tmg1KFL" });
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="container">
+
+  <h3 class="center-align">Getränkebestellung</h3>
+
+  <div class="row">
+    <form class="col s12" id="orderForm">
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <select id="drink" name="drink">
+            <option value="" disabled selected>Wähle ein Getränk</option>
+            <option value="Cola">Cola</option>
+            <option value="Wasser">Wasser</option>
+            <option value="Bier">Bier</option>
+          </select>
+          <label>Getränk</label>
+        </div>
+
+        <div class="input-field col s12 m6">
+          <input type="number" id="quantity" name="quantity" min="1" value="1" />
+          <label for="quantity">Anzahl</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input type="text" id="tableNumber" name="tableNumber" readonly />
+          <label for="tableNumber">Tischnummer</label>
+        </div>
+      </div>
+
+      <button class="btn waves-effect waves-light" type="submit">
+        Bestellen
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+
+  <div id="orderSummary" class="card-panel teal lighten-4"></div>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
